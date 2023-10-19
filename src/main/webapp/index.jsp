@@ -8,11 +8,19 @@
 </head>
 <body>
     <h2>Add Customer</h2>
-    <form action="${pageContext.request.contextPath}/customer" method="post">
+    <form action="CustomerControllerServlet" method="post">
         First Name: <input type="text" name="firstName"><br>
         Last Name: <input type="text" name="lastName"><br>
         Email: <input type="text" name="email"><br>
         <input type="submit" value="Add Customer">
     </form>
+    
+    
+    
+    <form action="viewCustomerServlet" method="get">
+    	<input type="submit" value="Fetch Customer Data">
+	</form>
+
+
 </body>
 </html>
