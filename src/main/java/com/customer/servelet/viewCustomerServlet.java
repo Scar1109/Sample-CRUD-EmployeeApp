@@ -21,8 +21,9 @@ public class viewCustomerServlet extends HttpServlet {
     	viewCustomerDBUtill customerDao = new viewCustomerDBUtill();
         List<Customer> customers = customerDao.getAllCustomers();
 
+        
         // Pass the customer data to the JSP view
         request.setAttribute("customers", customers);
-        request.getRequestDispatcher("customerView.jsp").forward(request, response);
+        request.getRequestDispatcher("view/customerView.jsp").forward(request, response);
     }
 }

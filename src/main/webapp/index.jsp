@@ -14,13 +14,8 @@
         Email: <input type="text" name="email"><br>
         <input type="submit" value="Add Customer">
     </form>
-    
-    
-    
-    <form action="viewCustomerServlet" method="get">
-    	<input type="submit" value="Fetch Customer Data">
-	</form>
-
+	
+	<a href="<%=request.getContextPath()%>/viewCustomerServlet"> Fetch Customers </a>
 
 </body>
 </html>

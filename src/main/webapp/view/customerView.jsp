@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Customer List</title>
+    <link rel="stylesheet" type="text/css" href="view/css/viewCustomer.css">
 </head>
 <body>
     <div class="container">
@@ -20,7 +21,9 @@
             </thead>
             <tbody>
                 <%
+                	
                     List<Customer> customers = (List<Customer>) request.getAttribute("customers");
+                if (customers != null && !customers.isEmpty()) {
                     for (Customer cus : customers) {
                 %>
                 <tr>
@@ -28,6 +31,14 @@
                     <td><%= cus.getFirstName() %></td>
                     <td><%= cus.getLastName() %></td>
                     <td><%= cus.getEmail() %></td>
+                </tr>
+                <%
+                    }
+                    customers.clear();
+                } else {
+                %>
+                <tr>
+                    <td colspan="4">No Customers</td>
                 </tr>
                 <%
                     }
