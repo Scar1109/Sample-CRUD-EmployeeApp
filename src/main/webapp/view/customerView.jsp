@@ -32,7 +32,8 @@
                     <td><%= cus.getFirstName() %></td>
                     <td><%= cus.getLastName() %></td>
                     <td><%= cus.getEmail() %></td>
-                    <td><a href = "<%=request.getContextPath()%>/deleteCustomerServlet?customerId=<%= cus.getId() %>">delete</a></td>
+                    <td><a href="<%=request.getContextPath()%>/deleteCustomerServlet?customerId=<%= cus.getId() %>"
+           onclick="return confirm('Are you sure you want to delete this customer?');">delete</a></td>
                 </tr>
                 <%
                     }
