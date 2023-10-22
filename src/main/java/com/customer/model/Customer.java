@@ -5,6 +5,18 @@ public class Customer {
 	private String firstName;
 	private String lastName;
 	private String email;
+	
+	public Customer(int cusId, String firstName, String lastName, String email) {
+		super();
+		this.cusId = cusId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+	
+	public Customer() {
+		
+	}
 
 	// Getters and setters
 

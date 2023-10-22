@@ -63,5 +63,87 @@ public class CustomerDBUtill {
             return false;
         }
     }
+    
+    public static void addCustomer(Customer customer) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+            String sql = "INSERT INTO customers (first_name, last_name, email) VALUES (?, ?, ?)";
+            preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getEmail());
+
+            preparedStatement.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    
+    public static void updateCustomer(Customer customer) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+        	Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+
+            // Define the SQL update query
+            String sql = "UPDATE customers SET first_name = ?, last_name = ?, email = ? WHERE id = ?";
+
+            // Create a PreparedStatement
+            preparedStatement = connection.prepareStatement(sql);
+
+            // Set the parameters for the query
+            preparedStatement.setString(1, customer.getFirstName());
+            preparedStatement.setString(2, customer.getLastName());
+            preparedStatement.setString(3, customer.getEmail());
+            preparedStatement.setInt(4, customer.getId());
+
+            // Execute the update query
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                // The update was successful
+            } else {
+                System.out.println("Error");
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            // Handle any SQL errors here
+        } finally {
+            // Close resources (connection and preparedStatement) in a finally block
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 }

@@ -90,3 +90,33 @@ tr:hover {
     background-color: #e0e0e0;
     transition: background-color 0.2s;
 }
+
+
+.edit {
+        background-color: #f4f4f4;
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px 0;
+        box-shadow: 3px 3px 5px #888888;
+    }
+
+    .edit input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .edit input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .edit input[type="submit"]:hover {
+        background-color: #45a049;
+    }

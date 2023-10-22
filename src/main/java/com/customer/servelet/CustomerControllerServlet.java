@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.customer.model.Customer;
-import com.customer.utill.CustomerDbUtil;
+import com.customer.utill.CustomerDBUtill;
 
   
 @WebServlet(urlPatterns = "/CustomerControllerServlet", name = "CustomerControllerServlet")
@@ -26,7 +26,7 @@ public class CustomerControllerServlet extends HttpServlet {
         customer.setLastName(lastName);
         customer.setEmail(email);
 
-        CustomerDbUtil.addCustomer(customer);
+        CustomerDBUtill.addCustomer(customer);
 
         // Redirect to a success page or show a success message
         response.sendRedirect("success.jsp");
