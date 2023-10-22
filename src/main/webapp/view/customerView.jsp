@@ -47,7 +47,7 @@
                 %>
             </tbody>
         </table>
-        <a class="add-customer-button" href="add-customer.jsp">Add Customer</a>
+        <a class="add-customer-button" href="index.jsp">Add customer</a>
     </div>
 </body>
 </html>
