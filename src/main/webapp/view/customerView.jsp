@@ -17,6 +17,7 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                     <td><%= cus.getFirstName() %></td>
                     <td><%= cus.getLastName() %></td>
                     <td><%= cus.getEmail() %></td>
+                    <td><a href = "<%=request.getContextPath()%>/deleteCustomerServlet?customerId=<%= cus.getId() %>">delete</a></td>
                 </tr>
                 <%
                     }
@@ -41,7 +43,7 @@
                     <td colspan="4">No Customers</td>
                 </tr>
                 <%
-                    }
+                	}
                 %>
             </tbody>
         </table>

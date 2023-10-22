@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.customer.model.Customer;
-import com.customer.utill.viewCustomerDBUtill;
+import com.customer.utill.CustomerDBUtill;
 
 @WebServlet("/viewCustomerServlet")
 public class viewCustomerServlet extends HttpServlet {
@@ -18,8 +18,13 @@ public class viewCustomerServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Retrieve customer data from the database using a DAO class
-    	viewCustomerDBUtill customerDao = new viewCustomerDBUtill();
-        List<Customer> customers = customerDao.getAllCustomers();
+        List<Customer> customers = null;
+		try {
+			customers = CustomerDBUtill.getAllCustomers();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         
         // Pass the customer data to the JSP view
